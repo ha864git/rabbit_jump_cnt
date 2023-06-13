@@ -1,0 +1,122 @@
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.layer-img {
+  position: absolute;
+}
+
+.layer-img.hidden {
+  visibility: hidden;
+}
+
+.trim_foot_frame {
+  overflow: hidden;
+  width: 600px;
+  height: 500px;
+  position: absolute;
+}
+
+.trim_leg_frame {
+  overflow: hidden;
+  width: 600px;
+  height: 500px;
+  position: absolute;
+}
+
+#leg_frame {
+  width: 600px;
+  height: 500px;
+  background-color: black;
+}
+
+#foot_frame {
+  width: 600px;
+  height: 500px;
+  background-color: rgb(244, 236, 236);
+  overflow: hidden;
+}
+
+div.degree {
+  width: 50px;
+  background-color: aqua;
+  border: 1px solid;
+  text-align: center;
+  border-radius: 5px;
+}
+
+div.incdecbutton {
+  width: 40px;
+  background-color: burlywood;
+  border: 1px solid;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+div.incdecbutton.reset {
+  width: 50px;
+  background-color: chartreuse;
+}
+
+
+/*****************************/
+
+.display_none {
+  display: none;
+}
+
+#text_area {
+  width: 300px;
+  height: 200px;
+  padding: 5px;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+
+.base {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+}
+
+.base.display_none {
+  display: none;
+}
+
+.class1 {
+  width: 500px;
+}
+
+.class2 {
+  width: 400px;
+}
+
+td#editlist {
+  border: solid 1px;              /* 枠線指定 */
+}
+
+th#editlist {
+  background-color: #2196F3;  /* 背景色指定 */
+  color:  #fff;               /* 文字色指定 */
+  font-weight:  normal;       /* 文字の太さ指定 */
+  position:  relative;        /* 位置指定 */
+  z-index: 10;                /* 重なり調整 */
+}
+
+
+table#editlist {
+  border-collapse:  collapse;     /* セルの線を重ねる */
+}
+
+th.th1 {
+  width: 30px;
+}
+th.th_angle {
+  width: 50px;
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>BLE UART TX/RX and motion editor</title>
+</head>
+
+<body>
+
+    <div id="clist" class="base">
+        <div class="class1">
+            <button type="button" id="connect">接続</button>
+            <button type="button" id="disconnect">切断</button>
+            <div id="status"></div>
+            <textarea id="text_area" class="display_none"></textarea>
+            <br>
+            <div id="file_container" class="container_flex display_none">
+                <button type="button" id="upload" class="display_none">Upload</button>
+                <button type="button" id="lplay">play</button>
+                <button type="button" id="lstop">stop</button>
+                <button type="button" id="step_on">step mode: on</button>
+                <button type="button" id="step_off">step mode: off</button>
+                <button type="button" id="next_step">next step</button>
+            </div>
+            <br>
+            <form><input id="file" type="file" name="file" aria-label="file" /></form>
+            <button id="savebtn">ファイルに保存</button><br>
+            <button type="button" id="addlist" onclick="addlist()">+</button><br>
+            <table id="editlist" border="1">
+                <tr>
+                    <th class="th1"></th>
+                    <th class="th1"></th>
+                    <th class="th1"></th>
+                    <th class="th_angle">fore foot</th>
+                    <th class="th_angle">hide foot</th>
+                    <th class="th_angle">fore leg</th>
+                    <th class="th_angle">hide leg</th>
+                    <th class="th_angle">pitch</th>
+                    <th class="th1"></th>
+                    <th class="th1"></th>
+                    <th class="th1"></th>
+                </tr>
+            </table>
+        </div>
+        <div class="class2">
+            <div id="foot_frame">
+                <div class="trim_foot_frame"><img src="images/floor.png" id="floor" alt="" class="layer-img hidden" />
+                </div>
+                <div class="trim_foot_frame"><img src="images/body.png" id="body2" alt="" class="layer-img hidden" />
+                </div>
+                <div class="trim_foot_frame"><img src="images/leg.png" id="fore_leg" alt="" class="layer-img hidden" />
+                </div>
+                <div class="trim_foot_frame"><img src="images/leg.png" id="hind_leg" alt="" class="layer-img hidden" />
+                </div>
+                <div class="trim_foot_frame"><img src="images/fore_foot.png" id="fore_foot" alt=""
+                        class="layer-img hidden" />
+                </div>
+                <div class="trim_foot_frame"><img src="images/hind_foot.png" id="hind_foot" alt=""
+                        class="layer-img hidden" />
+                </div>
+            </div>
+            <form>
+                <label>reference plane
+                    <input type="radio" name="reference_plane" value="hind_sole" checked>Hind foot sole
+                    <input type="radio" name="reference_plane" value="fore_sole">Fore foot sole
+                </label>
+            </form>
+            <table border="0">
+                <tr>
+                    <td></td>
+                    <td>hind</td>
+                    <td colspan="2"></td>
+                    <td>fore</td>
+                    <td colspan="2"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>leg angle</div>
+                    </td>
+                    <td>
+                        <div id="id_hind_leg_angle" class="degree unselectable">90</div>
+                    </td>
+                    <td>
+                        <div id="id_inc_hind_leg" class="incdecbutton unselectable">+</div>
+                    </td>
+                    <td>
+                        <div id="id_dec_hind_leg" class="incdecbutton unselectable">-</div>
+                    </td>
+                    <td>
+                        <div id="id_fore_leg_angle" class="degree unselectable">90</div>
+                    </td>
+                    <td>
+                        <div id="id_inc_fore_leg" class="incdecbutton unselectable">+</div>
+                    </td>
+                    <td>
+                        <div id="id_dec_fore_leg" class="incdecbutton unselectable">-</div>
+                    </td>
+                    <td>
+                        <div id="id_reset_leg_angle" class="incdecbutton reset unselectable">Reset</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>foot angle</div>
+                    </td>
+                    <td>
+                        <div id="id_hind_foot_angle" class="degree unselectable">90</div>
+                    </td>
+                    <td>
+                        <div id="id_inc_hind_foot" class="incdecbutton unselectable">+</div>
+                    </td>
+                    <td>
+                        <div id="id_dec_hind_foot" class="incdecbutton unselectable">-</div>
+                    </td>
+                    <td>
+                        <div id="id_fore_foot_angle" class="degree unselectable">90</div>
+                    </td>
+                    <td>
+                        <div id="id_inc_fore_foot" class="incdecbutton unselectable">+</div>
+                    </td>
+                    <td>
+                        <div id="id_dec_fore_foot" class="incdecbutton unselectable">-</div>
+                    </td>
+                    <td>
+                        <div id="id_reset_foot_angle" class="incdecbutton reset unselectable">Reset</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <!-------
+    <script type="text/javascript" src="jquery-3.7.0.js"></script>
+    ----->
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="ble_uart_txrx.js"></script>
+    <script type="text/javascript" src="motion_edit.js"></script>
+
+</body>
+
+</html>
